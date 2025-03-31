@@ -225,7 +225,13 @@ try:
                 if "Dashboard" in login_response.text or "Services" in login_response.text:
                     print("Login via requests was successful!")
                     
-                    # Check booking page
+                    # First navigate to Services page
+                    services_response = session.get("https://prenotami.esteri.it/Services", headers=headers)
+                    with open("services_response.html", "w", encoding="utf-8") as f:
+                        f.write(services_response.text)
+                    print("Navigated to Services page")
+                    
+                    # Then check booking page
                     booking_response = session.get("https://prenotami.esteri.it/Services/Booking/1151", headers=headers)
                     with open("booking_response.html", "w", encoding="utf-8") as f:
                         f.write(booking_response.text)
@@ -258,8 +264,15 @@ try:
             
             print("Cookies saved to prenotami_cookies.json")
             
-            # Navigate to the specific booking page
-            print("Navigating to the booking service page...")
+            # First navigate to the Services page
+            print("Navigating to the main Services page...")
+            driver.get("https://prenotami.esteri.it/Services")
+            human_delay()
+            driver.save_screenshot("services_page.png")
+            print("Services page accessed, saved screenshot")
+            
+            # Then navigate to the specific booking page
+            print("Navigating to the specific booking service page...")
             driver.get("https://prenotami.esteri.it/Services/Booking/1151")
             human_delay()
             
