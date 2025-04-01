@@ -40,23 +40,28 @@ def run_appointment_monitor():
         logger.error(f"Error running appointment check: {e}")
         return -1
 
-def schedule_next_run():
-    """Schedule the next run with random variance of ±10 minutes"""
-    # Calculate a random offset between -10 and +10 minutes
+def schedule_with_random_interval():
+    """Clear existing jobs and schedule a new job with random interval"""
+    # Generate random minutes offset between -10 and +10
     minutes_offset = random.randint(-10, 10)
-    next_run = datetime.now() + timedelta(hours=1, minutes=minutes_offset)
+    # Base interval is 60 minutes (1 hour) plus the random offset
+    interval_minutes = 60 + minutes_offset
     
-    # Clear existing jobs and schedule the new one
+    # Clear any existing scheduled jobs
     schedule.clear()
-    schedule.at(next_run.strftime("%H:%M")).do(run_and_reschedule)
     
+    # Schedule the next run
+    schedule.every(interval_minutes).minutes.do(run_and_reschedule)
+    
+    # Calculate and log the next run time
+    next_run = datetime.now() + timedelta(minutes=interval_minutes)
     logger.info(f"Next check scheduled for {next_run.strftime('%Y-%m-%d %H:%M:%S')} "
                 f"(standard hour {minutes_offset:+d} minutes)")
-    
+
 def run_and_reschedule():
     """Run the monitor and schedule the next run"""
     run_appointment_monitor()
-    schedule_next_run()
+    schedule_with_random_interval()
 
 def main():
     """Main scheduler function"""
@@ -66,8 +71,8 @@ def main():
     logger.info("Running initial check...")
     run_appointment_monitor()
     
-    # Schedule next run
-    schedule_next_run()
+    # Schedule next run with random interval
+    schedule_with_random_interval()
     
     logger.info("Scheduler active. Will check for appointments approximately every hour (±10 minutes).")
     
