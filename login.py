@@ -163,130 +163,36 @@ try:
         driver.save_screenshot("after_login.png")
         print("Login attempt completed, saved screenshot")
         
-        # Check page source for success or failure indicators
-        page_source = driver.page_source
-        if "Unavailable" in page_source:
-            print("DETECTED: Website returned 'Unavailable' - automated access detected")
-            print("Saving page source for analysis...")
-            with open("unavailable_page.html", "w", encoding="utf-8") as f:
-                f.write(page_source)
-            
-            # Try a different approach - direct HTTP request
-            print("Attempting alternative method with requests library...")
-            try:
-                import requests
-                from bs4 import BeautifulSoup
-                
-                session = requests.Session()
-                
-                # Set headers to mimic a browser
-                headers = {
-                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.6943.53 Safari/537.36",
-                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-                    "Accept-Language": "en-US,en;q=0.5",
-                    "Referer": "https://prenotami.esteri.it/"
-                }
-                
-                # First request to get any required cookies
-                initial_response = session.get("https://prenotami.esteri.it/", headers=headers)
-                
-                # Check if we need to switch language
-                if "Language/ChangeLanguage" in initial_response.text:
-                    print("Switching language to English...")
-                    session.get("https://prenotami.esteri.it/Language/ChangeLanguage?lang=2", headers=headers)
-                
-                # Prepare login data
-                login_data = {
-                    "Email": EMAIL,
-                    "Password": PASSWORD
-                }
-                
-                # Get the login page to extract any anti-forgery tokens
-                login_page = session.get("https://prenotami.esteri.it/Account/Login", headers=headers)
-                soup = BeautifulSoup(login_page.text, 'html.parser')
-                
-                # Look for hidden input fields to include in the form
-                for input_tag in soup.find_all('input', type='hidden'):
-                    if input_tag.get('name'):
-                        login_data[input_tag.get('name')] = input_tag.get('value', '')
-                
-                # Perform login
-                print("Attempting login via requests...")
-                login_response = session.post(
-                    "https://prenotami.esteri.it/Account/Login", 
-                    data=login_data,
-                    headers=headers
-                )
-                
-                # Save the response
-                with open("login_response.html", "w", encoding="utf-8") as f:
-                    f.write(login_response.text)
-                
-                if "Dashboard" in login_response.text or "Services" in login_response.text:
-                    print("Login via requests was successful!")
-                    
-                    # First navigate to Services page
-                    services_response = session.get("https://prenotami.esteri.it/Services", headers=headers)
-                    with open("services_response.html", "w", encoding="utf-8") as f:
-                        f.write(services_response.text)
-                    print("Navigated to Services page")
-                    
-                    # Then check booking page
-                    booking_response = session.get("https://prenotami.esteri.it/Services/Booking/1151", headers=headers)
-                    with open("booking_response.html", "w", encoding="utf-8") as f:
-                        f.write(booking_response.text)
-                    
-                    if "Sorry, all appointments for this service are currently booked" in booking_response.text:
-                        print("RESULT: No appointments available - all slots are booked.")
-                    else:
-                        print("RESULT: Appointments might be available!")
-                        print("Check booking_response.html for details.")
-                    
-                    # Save cookies
-                    cookies_dict = requests.utils.dict_from_cookiejar(session.cookies)
-                    with open("prenotami_cookies_requests.json", "w") as f:
-                        json.dump(cookies_dict, f)
-                    
-                    print("Cookies saved to prenotami_cookies_requests.json")
-                    
-                else:
-                    print("Login via requests failed.")
-                    
-            except Exception as e:
-                print(f"Alternative method failed: {e}")
+        # Get all cookies
+        cookies = driver.get_cookies()
+        with open("prenotami_cookies.json", "w") as f:
+            json.dump(cookies, f)
         
+        print("Cookies saved to prenotami_cookies.json")
+        
+        # First navigate to the Services page
+        print("Navigating to the main Services page...")
+        driver.get("https://prenotami.esteri.it/Services")
+        human_delay()
+        driver.save_screenshot("services_page.png")
+        print("Services page accessed, saved screenshot")
+        
+        # Then navigate to the specific booking page
+        print("Navigating to the specific booking service page...")
+        driver.get("https://prenotami.esteri.it/Services/Booking/1151")
+        human_delay()
+        
+        # Check for the "fully booked" message
+        page_source = driver.page_source
+        if "Sorry, all appointments for this service are currently booked" in page_source:
+            print("RESULT: No appointments available - all slots are booked.")
         else:
-            # Continue with the normal process...
-            # Get all cookies
-            cookies = driver.get_cookies()
-            with open("prenotami_cookies.json", "w") as f:
-                json.dump(cookies, f)
+            print("RESULT: Appointments might be available!")
             
-            print("Cookies saved to prenotami_cookies.json")
-            
-            # First navigate to the Services page
-            print("Navigating to the main Services page...")
-            driver.get("https://prenotami.esteri.it/Services")
-            human_delay()
-            driver.save_screenshot("services_page.png")
-            print("Services page accessed, saved screenshot")
-            
-            # Then navigate to the specific booking page
-            print("Navigating to the specific booking service page...")
-            driver.get("https://prenotami.esteri.it/Services/Booking/1151")
-            human_delay()
-            
-            # Check for the "fully booked" message
-            page_source = driver.page_source
-            if "Sorry, all appointments for this service are currently booked" in page_source:
-                print("RESULT: No appointments available - all slots are booked.")
-            else:
-                print("RESULT: Appointments might be available!")
-                
-                # Save for inspection
-                driver.save_screenshot("booking_page.png")
-                with open("booking_page.html", "w", encoding="utf-8") as f:
-                    f.write(page_source)
+            # Save for inspection
+            driver.save_screenshot("booking_page.png")
+            with open("booking_page.html", "w", encoding="utf-8") as f:
+                f.write(page_source)
                 
     except Exception as e:
         print(f"Error during process: {e}")
