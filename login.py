@@ -87,6 +87,9 @@ if not EMAIL or not PASSWORD:
 # Configure Chrome options
 chrome_options = Options()
 
+# Add headless mode
+chrome_options.add_argument("--headless=new")  # Use the new headless implementation
+
 # Anti-bot detection measures
 chrome_options.add_argument("--disable-blink-features=AutomationControlled")
 chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
