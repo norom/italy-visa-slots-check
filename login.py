@@ -177,21 +177,39 @@ try:
         driver.save_screenshot("services_page.png")
         print("Services page accessed, saved screenshot")
         
-        # Then navigate to the specific booking page
-        print("Navigating to the specific booking service page...")
+        # Then navigate to the first booking page
+        print("Navigating to the first booking service page (1151)...")
         driver.get("https://prenotami.esteri.it/Services/Booking/1151")
         human_delay()
         
         # Check for the "fully booked" message
         page_source = driver.page_source
         if "Sorry, all appointments for this service are currently booked" in page_source:
-            print("RESULT: No appointments available - all slots are booked.")
+            print("RESULT: No appointments available for service 1151 - all slots are booked.")
+            
+            # Try the second booking page with delay
+            print("Trying alternative booking service page (1258)...")
+            human_delay()  # Additional delay before trying next service
+            driver.get("https://prenotami.esteri.it/Services/Booking/1258")
+            human_delay()
+            
+            # Check the second service for availability
+            page_source = driver.page_source
+            if "Sorry, all appointments for this service are currently booked" in page_source:
+                print("RESULT: No appointments available for service 1258 either - all slots are booked.")
+            else:
+                print("RESULT: Appointments might be available for service 1258!")
+                
+                # Save for inspection
+                driver.save_screenshot("booking_page_1258.png")
+                with open("booking_page_1258.html", "w", encoding="utf-8") as f:
+                    f.write(page_source)
         else:
-            print("RESULT: Appointments might be available!")
+            print("RESULT: Appointments might be available for service 1151!")
             
             # Save for inspection
-            driver.save_screenshot("booking_page.png")
-            with open("booking_page.html", "w", encoding="utf-8") as f:
+            driver.save_screenshot("booking_page_1151.png")
+            with open("booking_page_1151.html", "w", encoding="utf-8") as f:
                 f.write(page_source)
                 
     except Exception as e:
