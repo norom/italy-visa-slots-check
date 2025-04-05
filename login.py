@@ -77,6 +77,47 @@ def read_credentials(file_path="credentials.json"):
         print(f"Error reading credentials: {e}")
         exit(1)
 
+# Function to create a new driver with the same configuration
+def create_new_driver():
+    # Configure Chrome options
+    chrome_options = Options()
+    
+    # Add headless mode
+    chrome_options.add_argument("--headless=new")  # Use the new headless implementation
+    
+    # Anti-bot detection measures
+    chrome_options.add_argument("--disable-blink-features=AutomationControlled")
+    chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    chrome_options.add_experimental_option("useAutomationExtension", False)
+    chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.6943.53 Safari/537.36")
+    
+    # Other options
+    temp_dir = mkdtemp()
+    chrome_options.add_argument(f"--user-data-dir={temp_dir}")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--window-size=1920,1080")
+    
+    # Initialize the driver with the correct ChromeDriver version
+    print("Installing ChromeDriver...")
+    driver_path = ChromeDriverManager().install()
+    print(f"Using ChromeDriver from: {driver_path}")
+    service = Service(driver_path)
+    driver = webdriver.Chrome(service=service, options=chrome_options)
+    
+    # Apply stealth settings
+    stealth(driver,
+          languages=["en-US", "en"],
+          vendor="Google Inc.",
+          platform="Win32",
+          webgl_vendor="Intel Inc.",
+          renderer="Intel Iris OpenGL Engine",
+          fix_hairline=True,
+    )
+    
+    print("Selenium-stealth applied")
+    return driver, service, temp_dir
+
 # Read login credentials from external file
 EMAIL, PASSWORD = read_credentials()
 
@@ -84,43 +125,8 @@ if not EMAIL or not PASSWORD:
     print("Error: Email or password missing in credentials file.")
     exit(1)
 
-# Configure Chrome options
-chrome_options = Options()
-
-# Add headless mode
-chrome_options.add_argument("--headless=new")  # Use the new headless implementation
-
-# Anti-bot detection measures
-chrome_options.add_argument("--disable-blink-features=AutomationControlled")
-chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
-chrome_options.add_experimental_option("useAutomationExtension", False)
-chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.6943.53 Safari/537.36")
-
-# Other options
-temp_dir = mkdtemp()
-chrome_options.add_argument(f"--user-data-dir={temp_dir}")
-chrome_options.add_argument("--no-sandbox")
-chrome_options.add_argument("--disable-dev-shm-usage")
-chrome_options.add_argument("--window-size=1920,1080")
-
-# Initialize the driver with the correct ChromeDriver version
-print("Installing ChromeDriver...")
-driver_path = ChromeDriverManager().install()
-print(f"Using ChromeDriver from: {driver_path}")
-service = Service(driver_path)
-driver = webdriver.Chrome(service=service, options=chrome_options)
-
-# Apply stealth settings
-stealth(driver,
-      languages=["en-US", "en"],
-      vendor="Google Inc.",
-      platform="Win32",
-      webgl_vendor="Intel Inc.",
-      renderer="Intel Iris OpenGL Engine",
-      fix_hairline=True,
-)
-
-print("Selenium-stealth applied")
+# Initialize the driver
+driver, service, temp_dir = create_new_driver()
 
 try:
     max_retries = 3
@@ -133,20 +139,13 @@ try:
         if current_retry > 0:
             print("Refreshing session after timeout...")
             try:
-                # Close and reopen browser for a fresh session
+                # Close old driver
                 driver.quit()
-                driver = webdriver.Chrome(service=service, options=chrome_options)
-                
-                # Reapply stealth settings
-                stealth(driver,
-                      languages=["en-US", "en"],
-                      vendor="Google Inc.",
-                      platform="Win32",
-                      webgl_vendor="Intel Inc.",
-                      renderer="Intel Iris OpenGL Engine",
-                      fix_hairline=True,
-                )
-                print("Selenium-stealth reapplied for new session")
+                # Create a fresh driver instance
+                driver, service, new_temp_dir = create_new_driver()
+                # Track the new temp directory to clean up later
+                temp_dir = new_temp_dir
+                print("Browser session refreshed successfully")
             except Exception as e:
                 print(f"Error refreshing browser session: {e}")
                 break
@@ -342,5 +341,6 @@ finally:
     try:
         import shutil
         shutil.rmtree(temp_dir)
-    except:
+    except Exception as cleanup_error:
+        print(f"Error during cleanup: {cleanup_error}")
         pass
