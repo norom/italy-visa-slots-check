@@ -109,6 +109,81 @@ def run_appointment_check():
         print(f"Error running appointment check: {e}")
         return None
 
+def update_daily_status(available=False):
+    """Update the daily status file to track if appointments were available today"""
+    status_file = os.path.join(ARTIFACTS_DIR, "daily_status.json")
+    today = datetime.now().strftime("%Y-%m-%d")
+    
+    try:
+        # Read existing data if file exists
+        if os.path.exists(status_file):
+            with open(status_file, 'r') as f:
+                status_data = json.load(f)
+        else:
+            status_data = {"last_available_date": None, "checks_today": 0, "date": today}
+        
+        # Update the date if it's a new day
+        if status_data.get("date") != today:
+            status_data = {"last_available_date": status_data.get("last_available_date"), "checks_today": 0, "date": today}
+        
+        # Increment the checks counter
+        status_data["checks_today"] = status_data.get("checks_today", 0) + 1
+        
+        # Update the last available date if appointments are available
+        if available:
+            status_data["last_available_date"] = today
+        
+        # Save updated data
+        with open(status_file, 'w') as f:
+            json.dump(status_data, f)
+            
+        return status_data
+    except Exception as e:
+        print(f"Error updating daily status: {e}")
+        return None
+
+def is_summary_time():
+    """Check if it's time to send the daily summary (around 17:00)"""
+    now = datetime.now()
+    return now.hour == 17 and 0 <= now.minute < 10  # Between 17:00 and 17:10
+
+def send_daily_summary(bot_token, chat_id):
+    """Send a daily summary message if no appointments were available today"""
+    status_file = os.path.join(ARTIFACTS_DIR, "daily_status.json")
+    
+    try:
+        if not os.path.exists(status_file):
+            return False
+            
+        with open(status_file, 'r') as f:
+            status_data = json.load(f)
+        
+        today = datetime.now().strftime("%Y-%m-%d")
+        
+        # Only send summary if it's for today and we haven't found appointments today
+        if status_data.get("date") == today and status_data.get("last_available_date") != today:
+            checks_today = status_data.get("checks_today", 0)
+            last_available = status_data.get("last_available_date", "never")
+            
+            message = f"📊 <b>DAILY SUMMARY</b>\n\n"
+            message += f"Date: {today}\n"
+            message += f"Checks performed today: {checks_today}\n"
+            message += f"Result: No appointments were available today\n"
+            
+            if last_available and last_available != "never":
+                message += f"Last time appointments were available: {last_available}"
+            else:
+                message += "No appointments have been available since monitoring began."
+            
+            # Send the summary message
+            send_telegram_message(bot_token, chat_id, message)
+            return True
+    
+    except Exception as e:
+        print(f"Error sending daily summary: {e}")
+    
+    return False
+
 def main():
     """Main monitoring function"""
     # Ensure artifacts directory exists
@@ -122,6 +197,13 @@ def main():
         return
     
     print("Telegram configuration loaded successfully")
+    
+    # Check if it's time for the daily summary
+    if is_summary_time():
+        print("It's summary time. Checking if we need to send a daily summary...")
+        summary_sent = send_daily_summary(bot_token, chat_id)
+        if summary_sent:
+            print("Daily summary sent successfully")
     
     # Get HTML files before running check (to compare after)
     existing_html_files = set([f for f in os.listdir(ARTIFACTS_DIR) if f.startswith("booking_page_") and f.endswith(".html")])
@@ -141,7 +223,9 @@ def main():
     service_code, is_available = check_log_for_appointments(log_file)
     
     if is_available is True:
-        # Appointments available!
+        # Appointments available! Update daily status and send notification
+        update_daily_status(available=True)
+        
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         message = f"🎉 <b>APPOINTMENT AVAILABLE!</b> 🎉\n\nService code: {service_code}\nDetected at: {timestamp}\n\n⚡ Book immediately at https://prenotami.esteri.it/Services/Booking/{service_code}"
         
@@ -154,13 +238,13 @@ def main():
         send_telegram_message(bot_token, chat_id, message)
         
     elif is_available is False:
-        # No appointments available
+        # No appointments available - update daily status but DON'T send notification
+        update_daily_status(available=False)
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        message = f"😞 No appointments available at {timestamp}. Both services checked and fully booked."
-        send_telegram_message(bot_token, chat_id, message)
+        print(f"No appointments available at {timestamp}. Both services checked and fully booked.")
         
     else:
-        # Script may have failed to check all services
+        # Script may have failed to check all services - this is an error condition, so send notification
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         message = f"⚠️ Script may not have completed successfully at {timestamp}. Please check log file: {log_file}"
         send_telegram_message(bot_token, chat_id, message)
