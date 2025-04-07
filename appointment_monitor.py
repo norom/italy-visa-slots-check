@@ -8,6 +8,14 @@ from datetime import datetime
 
 # Configuration file path
 CONFIG_FILE = "telegram_config.json"
+# Artifacts directory
+ARTIFACTS_DIR = "artifacts"
+
+def ensure_artifacts_dir():
+    """Ensure the artifacts directory exists"""
+    if not os.path.exists(ARTIFACTS_DIR):
+        os.makedirs(ARTIFACTS_DIR)
+        print(f"Created artifacts directory: {ARTIFACTS_DIR}")
 
 def load_telegram_config():
     """Load Telegram bot token and chat ID from config file"""
@@ -80,8 +88,9 @@ def check_log_for_appointments(log_file):
 
 def run_appointment_check():
     """Run the login.py script and capture output to a log file"""
+    ensure_artifacts_dir()
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    log_file = f"appointment_check_{timestamp}.log"
+    log_file = os.path.join(ARTIFACTS_DIR, f"appointment_check_{timestamp}.log")
     
     print(f"Starting appointment check at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print(f"Log will be saved to {log_file}")
@@ -102,6 +111,9 @@ def run_appointment_check():
 
 def main():
     """Main monitoring function"""
+    # Ensure artifacts directory exists
+    ensure_artifacts_dir()
+    
     # Load Telegram configuration
     bot_token, chat_id = load_telegram_config()
     if not bot_token or not chat_id:
@@ -112,7 +124,7 @@ def main():
     print("Telegram configuration loaded successfully")
     
     # Get HTML files before running check (to compare after)
-    existing_html_files = set([f for f in os.listdir() if f.startswith("booking_page_") and f.endswith(".html")])
+    existing_html_files = set([f for f in os.listdir(ARTIFACTS_DIR) if f.startswith("booking_page_") and f.endswith(".html")])
     
     # Run appointment check
     log_file = run_appointment_check()
@@ -122,7 +134,7 @@ def main():
         return
     
     # New HTML files after check
-    new_html_files = set([f for f in os.listdir() if f.startswith("booking_page_") and f.endswith(".html")])
+    new_html_files = set([f for f in os.listdir(ARTIFACTS_DIR) if f.startswith("booking_page_") and f.endswith(".html")])
     new_files = new_html_files - existing_html_files
     
     # Check results
@@ -136,7 +148,7 @@ def main():
         # Add HTML file info if available
         html_file = f"booking_page_{service_code}.html"
         if html_file in new_files:
-            message += f"\n\nHTML file saved: {html_file}"
+            message += f"\n\nHTML file saved: {os.path.join(ARTIFACTS_DIR, html_file)}"
         
         # Send notification
         send_telegram_message(bot_token, chat_id, message)

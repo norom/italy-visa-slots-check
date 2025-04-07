@@ -3,14 +3,28 @@ import time
 import subprocess
 import logging
 import random
+import os
 from datetime import datetime, timedelta
 
+# Define artifacts directory
+ARTIFACTS_DIR = "artifacts"
+
+# Function to ensure the artifacts directory exists
+def ensure_artifacts_dir():
+    """Ensure the artifacts directory exists"""
+    if not os.path.exists(ARTIFACTS_DIR):
+        os.makedirs(ARTIFACTS_DIR)
+        print(f"Created artifacts directory: {ARTIFACTS_DIR}")
+
 # Configure logging
+ensure_artifacts_dir()
+log_file = os.path.join(ARTIFACTS_DIR, "scheduler.log")
+
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler("scheduler.log"),
+        logging.FileHandler(log_file),
         logging.StreamHandler()
     ]
 )

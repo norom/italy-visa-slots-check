@@ -12,6 +12,16 @@ import random
 from tempfile import mkdtemp
 import os
 
+# Define artifacts directory
+ARTIFACTS_DIR = "artifacts"
+
+# Function to ensure the artifacts directory exists
+def ensure_artifacts_dir():
+    """Ensure the artifacts directory exists"""
+    if not os.path.exists(ARTIFACTS_DIR):
+        os.makedirs(ARTIFACTS_DIR)
+        print(f"Created artifacts directory: {ARTIFACTS_DIR}")
+
 # Function to add random delays between actions
 def human_delay():
     time.sleep(random.uniform(1.0, 3.0))
@@ -118,6 +128,9 @@ def create_new_driver():
     print("Selenium-stealth applied")
     return driver, service, temp_dir
 
+# Ensure artifacts directory exists
+ensure_artifacts_dir()
+
 # Read login credentials from external file
 EMAIL, PASSWORD = read_credentials()
 
@@ -171,7 +184,8 @@ try:
                 )
             except Exception as e:
                 print(f"Error finding email field: {e}")
-                driver.save_screenshot(f"login_error_attempt_{current_retry}.png")
+                screenshot_path = os.path.join(ARTIFACTS_DIR, f"login_error_attempt_{current_retry}.png")
+                driver.save_screenshot(screenshot_path)
                 current_retry += 1
                 continue
                 
@@ -198,7 +212,8 @@ try:
                 
             human_delay()
             
-            driver.save_screenshot(f"form_filled_attempt_{current_retry}.png")
+            screenshot_path = os.path.join(ARTIFACTS_DIR, f"form_filled_attempt_{current_retry}.png")
+            driver.save_screenshot(screenshot_path)
             print("Form filled, saved screenshot")
             
             # Click on the Forward button
@@ -248,15 +263,17 @@ try:
             human_delay()
             
             # Check if we're logged in
-            driver.save_screenshot(f"after_login_attempt_{current_retry}.png")
+            screenshot_path = os.path.join(ARTIFACTS_DIR, f"after_login_attempt_{current_retry}.png")
+            driver.save_screenshot(screenshot_path)
             print("Login attempt completed, saved screenshot")
             
             # Get all cookies
             cookies = driver.get_cookies()
-            with open(f"prenotami_cookies_attempt_{current_retry}.json", "w") as f:
+            cookies_path = os.path.join(ARTIFACTS_DIR, f"prenotami_cookies_attempt_{current_retry}.json")
+            with open(cookies_path, "w") as f:
                 json.dump(cookies, f)
             
-            print("Cookies saved to prenotami_cookies.json")
+            print(f"Cookies saved to {cookies_path}")
             
             # First navigate to the Services page
             print("Navigating to the main Services page...")
@@ -269,7 +286,8 @@ try:
                 continue
                 
             human_delay()
-            driver.save_screenshot(f"services_page_attempt_{current_retry}.png")
+            screenshot_path = os.path.join(ARTIFACTS_DIR, f"services_page_attempt_{current_retry}.png")
+            driver.save_screenshot(screenshot_path)
             print("Services page accessed, saved screenshot")
             
             # Then navigate to the first booking page
@@ -311,15 +329,19 @@ try:
                     print("RESULT: Appointments might be available for service 1258!")
                     
                     # Save for inspection
-                    driver.save_screenshot("booking_page_1258.png")
-                    with open("booking_page_1258.html", "w", encoding="utf-8") as f:
+                    screenshot_path = os.path.join(ARTIFACTS_DIR, "booking_page_1258.png")
+                    driver.save_screenshot(screenshot_path)
+                    html_path = os.path.join(ARTIFACTS_DIR, "booking_page_1258.html")
+                    with open(html_path, "w", encoding="utf-8") as f:
                         f.write(page_source)
             else:
                 print("RESULT: Appointments might be available for service 1151!")
                 
                 # Save for inspection
-                driver.save_screenshot("booking_page_1151.png")
-                with open("booking_page_1151.html", "w", encoding="utf-8") as f:
+                screenshot_path = os.path.join(ARTIFACTS_DIR, "booking_page_1151.png")
+                driver.save_screenshot(screenshot_path)
+                html_path = os.path.join(ARTIFACTS_DIR, "booking_page_1151.html")
+                with open(html_path, "w", encoding="utf-8") as f:
                     f.write(page_source)
                     
             # Success! Break out of retry loop
@@ -327,7 +349,8 @@ try:
                 
         except Exception as e:
             print(f"Error during process attempt {current_retry}: {e}")
-            driver.save_screenshot(f"error_attempt_{current_retry}.png")
+            screenshot_path = os.path.join(ARTIFACTS_DIR, f"error_attempt_{current_retry}.png")
+            driver.save_screenshot(screenshot_path)
             current_retry += 1
         
 except Exception as e:
