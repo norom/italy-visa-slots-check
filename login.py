@@ -46,9 +46,9 @@ def navigate_with_timeout(driver, url, timeout=30):
             pass
         return False
 
-# Function to attempt logout and re-login
+# Function to attempt logout and re-login - now it just logs out without recreating driver
 def logout_and_retry(driver):
-    """Attempt to logout and then re-login"""
+    """Attempt to logout without recreating the driver"""
     print("Attempting to logout...")
     
     try:
@@ -63,8 +63,7 @@ def logout_and_retry(driver):
             human_delay()
             return True
         else:
-            print("Logout timed out, will try a fresh session")
-            # If logout times out, we'll just refresh the driver in the main loop
+            print("Logout timed out")
             return False
             
     except Exception as e:
@@ -149,8 +148,9 @@ try:
         # Open the website directly to the English version
         print(f"Attempt {current_retry + 1}/{max_retries}")
         
+        # Only create a new driver if it's a new retry attempt, not after a logout
         if current_retry > 0:
-            print("Refreshing session after timeout...")
+            print("Refreshing session for new attempt...")
             try:
                 # Close old driver
                 driver.quit()
@@ -164,7 +164,7 @@ try:
                 break
         
         print("Opening the website directly in English...")
-        site_loaded = navigate_with_timeout(driver, "https://prenotami.esteri.it/?lang=en-GB", 30)
+        site_loaded = navigate_with_timeout(driver, "https://prenotami.esteri.it", 30)
         
         if not site_loaded:
             print("Initial site load timed out, retrying...")
@@ -282,7 +282,8 @@ try:
             if not services_loaded:
                 print("Services page timed out, logging out and retrying...")
                 logout_success = logout_and_retry(driver)
-                current_retry += 1
+                # Only continue with the same driver, don't increment retry counter
+                # We want to try again with the same session, not reinitialize
                 continue
                 
             human_delay()
@@ -297,7 +298,7 @@ try:
             if not booking_loaded:
                 print("Booking page 1151 timed out, logging out and retrying...")
                 logout_success = logout_and_retry(driver)
-                current_retry += 1
+                # Only continue with the same driver, don't increment retry counter
                 continue
                 
             human_delay()
@@ -316,7 +317,7 @@ try:
                 if not booking2_loaded:
                     print("Booking page 1258 timed out, logging out and retrying...")
                     logout_success = logout_and_retry(driver)
-                    current_retry += 1
+                    # Only continue with the same driver, don't increment retry counter
                     continue
                     
                 human_delay()

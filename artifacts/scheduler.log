@@ -1,0 +1,277 @@
+2025-04-07 19:21:32,057 - appointment_scheduler - INFO - Appointment scheduler starting...
+2025-04-07 19:21:32,057 - appointment_scheduler - INFO - Running initial check...
+2025-04-07 19:21:32,058 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-07 19:21:32
+2025-04-07 19:22:12,320 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-07 19:22:12,321 - appointment_scheduler - INFO - Starting appointment check at 2025-04-07 19:21:32
+2025-04-07 19:22:12,321 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250407_192132.log
+2025-04-07 19:22:12,321 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-07 19:22:12,321 - appointment_scheduler - INFO - No appointments available at 2025-04-07 19:22:12. Both services checked and fully booked.
+2025-04-07 19:22:12,344 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-07 19:22:12,344 - appointment_scheduler - INFO - Next check scheduled for 2025-04-07 20:14:12 (standard hour -8 minutes)
+2025-04-07 19:22:12,344 - appointment_scheduler - INFO - Scheduler active. Will check for appointments approximately every hour (±10 minutes).
+2025-04-08 15:02:59,029 - appointment_scheduler - INFO - Appointment scheduler starting...
+2025-04-08 15:02:59,030 - appointment_scheduler - INFO - Running initial check...
+2025-04-08 15:02:59,030 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-08 15:02:59
+2025-04-08 15:03:37,217 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-08 15:03:37,218 - appointment_scheduler - INFO - Starting appointment check at 2025-04-08 15:02:59
+2025-04-08 15:03:37,218 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250408_150259.log
+2025-04-08 15:03:37,218 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-08 15:03:37,218 - appointment_scheduler - INFO - No appointments available at 2025-04-08 15:03:37. Both services checked and fully booked.
+2025-04-08 15:03:37,243 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-08 15:03:37,243 - appointment_scheduler - INFO - Next check scheduled for 2025-04-08 16:03:37 (standard hour +0 minutes)
+2025-04-08 15:03:37,243 - appointment_scheduler - INFO - Scheduler active. Will check for appointments approximately every hour (±10 minutes).
+2025-04-08 16:03:37,585 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-08 16:03:37
+2025-04-08 16:04:14,206 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-08 16:04:14,207 - appointment_scheduler - INFO - Starting appointment check at 2025-04-08 16:03:37
+2025-04-08 16:04:14,207 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250408_160337.log
+2025-04-08 16:04:14,208 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-08 16:04:14,208 - appointment_scheduler - INFO - No appointments available at 2025-04-08 16:04:14. Both services checked and fully booked.
+2025-04-08 16:04:14,234 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-08 16:04:14,237 - appointment_scheduler - INFO - Next check scheduled for 2025-04-08 17:13:14 (standard hour +9 minutes)
+2025-04-08 17:13:14,270 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-08 17:13:14
+2025-04-08 17:13:51,169 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-08 17:13:51,169 - appointment_scheduler - INFO - Starting appointment check at 2025-04-08 17:13:14
+2025-04-08 17:13:51,169 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250408_171314.log
+2025-04-08 17:13:51,169 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-08 17:13:51,169 - appointment_scheduler - INFO - No appointments available at 2025-04-08 17:13:51. Both services checked and fully booked.
+2025-04-08 17:13:51,191 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-08 17:13:51,193 - appointment_scheduler - INFO - Next check scheduled for 2025-04-08 18:16:51 (standard hour +3 minutes)
+2025-04-08 18:17:51,053 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-08 18:17:51
+2025-04-08 18:18:29,888 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-08 18:18:29,888 - appointment_scheduler - INFO - Starting appointment check at 2025-04-08 18:17:51
+2025-04-08 18:18:29,888 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250408_181751.log
+2025-04-08 18:18:29,888 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-08 18:18:29,888 - appointment_scheduler - INFO - No appointments available at 2025-04-08 18:18:29. Both services checked and fully booked.
+2025-04-08 18:18:29,917 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-08 18:18:29,920 - appointment_scheduler - INFO - Next check scheduled for 2025-04-08 19:13:29 (standard hour -5 minutes)
+2025-04-08 19:14:29,359 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-08 19:14:29
+2025-04-08 19:15:07,621 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-08 19:15:07,622 - appointment_scheduler - INFO - Starting appointment check at 2025-04-08 19:14:29
+2025-04-08 19:15:07,622 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250408_191429.log
+2025-04-08 19:15:07,623 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-08 19:15:07,623 - appointment_scheduler - INFO - No appointments available at 2025-04-08 19:15:07. Both services checked and fully booked.
+2025-04-08 19:15:07,644 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-08 19:15:07,647 - appointment_scheduler - INFO - Next check scheduled for 2025-04-08 20:21:07 (standard hour +6 minutes)
+2025-04-08 20:22:06,738 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-08 20:22:06
+2025-04-08 20:22:43,039 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-08 20:22:43,039 - appointment_scheduler - INFO - Starting appointment check at 2025-04-08 20:22:07
+2025-04-08 20:22:43,040 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250408_202207.log
+2025-04-08 20:22:43,040 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-08 20:22:43,040 - appointment_scheduler - INFO - No appointments available at 2025-04-08 20:22:43. Both services checked and fully booked.
+2025-04-08 20:22:43,056 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-08 20:22:43,059 - appointment_scheduler - INFO - Next check scheduled for 2025-04-08 21:30:43 (standard hour +8 minutes)
+2025-04-09 00:25:21,669 - appointment_scheduler - INFO - Appointment scheduler starting...
+2025-04-09 00:25:21,670 - appointment_scheduler - INFO - Running initial check...
+2025-04-09 00:25:21,671 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-09 00:25:21
+2025-04-09 00:26:15,736 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-09 00:26:15,736 - appointment_scheduler - INFO - Starting appointment check at 2025-04-09 00:25:22
+2025-04-09 00:26:15,736 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250409_002522.log
+2025-04-09 00:26:15,736 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-09 00:26:15,736 - appointment_scheduler - INFO - No appointments available at 2025-04-09 00:26:15. Both services checked and fully booked.
+2025-04-09 00:26:15,750 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-09 00:26:15,751 - appointment_scheduler - INFO - Next check scheduled for 2025-04-09 01:25:15 (standard hour -1 minutes)
+2025-04-09 00:26:15,751 - appointment_scheduler - INFO - Scheduler active. Will check for appointments approximately every hour (±10 minutes).
+2025-04-09 01:25:15,774 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-09 01:25:15
+2025-04-09 01:25:52,758 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-09 01:25:52,758 - appointment_scheduler - INFO - Starting appointment check at 2025-04-09 01:25:16
+2025-04-09 01:25:52,758 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250409_012516.log
+2025-04-09 01:25:52,758 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-09 01:25:52,758 - appointment_scheduler - INFO - No appointments available at 2025-04-09 01:25:52. Both services checked and fully booked.
+2025-04-09 01:25:52,774 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-09 01:25:52,775 - appointment_scheduler - INFO - Next check scheduled for 2025-04-09 02:19:52 (standard hour -6 minutes)
+2025-04-09 02:20:51,925 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-09 02:20:51
+2025-04-09 02:21:33,979 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-09 02:21:33,979 - appointment_scheduler - INFO - Starting appointment check at 2025-04-09 02:20:52
+2025-04-09 02:21:33,979 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250409_022052.log
+2025-04-09 02:21:33,979 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-09 02:21:33,979 - appointment_scheduler - INFO - No appointments available at 2025-04-09 02:21:33. Both services checked and fully booked.
+2025-04-09 02:21:34,000 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-09 02:21:34,000 - appointment_scheduler - INFO - Next check scheduled for 2025-04-09 03:11:34 (standard hour -10 minutes)
+2025-04-09 03:12:32,426 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-09 03:12:32
+2025-04-09 03:13:08,599 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-09 03:13:08,599 - appointment_scheduler - INFO - Starting appointment check at 2025-04-09 03:12:32
+2025-04-09 03:13:08,599 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250409_031232.log
+2025-04-09 03:13:08,599 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-09 03:13:08,599 - appointment_scheduler - INFO - No appointments available at 2025-04-09 03:13:08. Both services checked and fully booked.
+2025-04-09 03:13:08,622 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-09 03:13:08,623 - appointment_scheduler - INFO - Next check scheduled for 2025-04-09 04:04:08 (standard hour -9 minutes)
+2025-04-09 04:05:06,592 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-09 04:05:06
+2025-04-09 04:05:43,553 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-09 04:05:43,553 - appointment_scheduler - INFO - Starting appointment check at 2025-04-09 04:05:06
+2025-04-09 04:05:43,553 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250409_040506.log
+2025-04-09 04:05:43,554 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-09 04:05:43,554 - appointment_scheduler - INFO - No appointments available at 2025-04-09 04:05:43. Both services checked and fully booked.
+2025-04-09 04:05:43,585 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-09 04:05:43,585 - appointment_scheduler - INFO - Next check scheduled for 2025-04-09 05:15:43 (standard hour +10 minutes)
+2025-04-09 12:55:11,945 - appointment_scheduler - INFO - Appointment scheduler starting...
+2025-04-09 12:55:11,946 - appointment_scheduler - INFO - Running initial check...
+2025-04-09 12:55:11,946 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-09 12:55:11
+2025-04-09 12:55:47,384 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-09 12:55:47,384 - appointment_scheduler - INFO - Starting appointment check at 2025-04-09 12:55:12
+2025-04-09 12:55:47,384 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250409_125512.log
+2025-04-09 12:55:47,384 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-09 12:55:47,384 - appointment_scheduler - INFO - No appointments available at 2025-04-09 12:55:47. Both services checked and fully booked.
+2025-04-09 12:55:47,400 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-09 12:55:47,400 - appointment_scheduler - INFO - Next check scheduled for 2025-04-09 13:58:47 (standard hour +3 minutes)
+2025-04-09 12:55:47,400 - appointment_scheduler - INFO - Scheduler active. Will check for appointments approximately every hour (±10 minutes).
+2025-04-09 13:59:46,956 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-09 13:59:46
+2025-04-09 14:00:40,626 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-09 14:00:40,626 - appointment_scheduler - INFO - Starting appointment check at 2025-04-09 13:59:47
+2025-04-09 14:00:40,626 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250409_135947.log
+2025-04-09 14:00:40,626 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-09 14:00:40,626 - appointment_scheduler - INFO - No appointments available at 2025-04-09 14:00:40. Both services checked and fully booked.
+2025-04-09 14:00:40,658 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-09 14:00:40,661 - appointment_scheduler - INFO - Next check scheduled for 2025-04-09 15:09:40 (standard hour +9 minutes)
+2025-04-09 15:10:38,887 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-09 15:10:38
+2025-04-09 15:11:13,902 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-09 15:11:13,903 - appointment_scheduler - INFO - Starting appointment check at 2025-04-09 15:10:39
+2025-04-09 15:11:13,903 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250409_151039.log
+2025-04-09 15:11:13,903 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-09 15:11:13,903 - appointment_scheduler - INFO - No appointments available at 2025-04-09 15:11:13. Both services checked and fully booked.
+2025-04-09 15:11:13,924 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-09 15:11:13,924 - appointment_scheduler - INFO - Next check scheduled for 2025-04-09 16:05:13 (standard hour -6 minutes)
+2025-04-09 16:06:11,686 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-09 16:06:11
+2025-04-09 16:06:50,349 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-09 16:06:50,350 - appointment_scheduler - INFO - Starting appointment check at 2025-04-09 16:06:11
+2025-04-09 16:06:50,350 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250409_160611.log
+2025-04-09 16:06:50,350 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-09 16:06:50,350 - appointment_scheduler - INFO - No appointments available at 2025-04-09 16:06:50. Both services checked and fully booked.
+2025-04-09 16:06:50,375 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-09 16:06:50,378 - appointment_scheduler - INFO - Next check scheduled for 2025-04-09 17:02:50 (standard hour -4 minutes)
+2025-04-09 17:03:47,395 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-09 17:03:47
+2025-04-09 17:04:27,908 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-09 17:04:27,908 - appointment_scheduler - INFO - It's summary time. Checking if we need to send a daily summary...
+2025-04-09 17:04:27,908 - appointment_scheduler - INFO - Message sent successfully to Telegram at 2025-04-09 17:03:48
+2025-04-09 17:04:27,909 - appointment_scheduler - INFO - Daily summary sent successfully
+2025-04-09 17:04:27,909 - appointment_scheduler - INFO - Starting appointment check at 2025-04-09 17:03:48
+2025-04-09 17:04:27,909 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250409_170348.log
+2025-04-09 17:04:27,909 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-09 17:04:27,909 - appointment_scheduler - INFO - No appointments available at 2025-04-09 17:04:27. Both services checked and fully booked.
+2025-04-09 17:04:27,934 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-09 17:04:27,936 - appointment_scheduler - INFO - Next check scheduled for 2025-04-09 18:14:27 (standard hour +10 minutes)
+2025-04-09 18:15:24,808 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-09 18:15:24
+2025-04-09 18:16:00,443 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-09 18:16:00,443 - appointment_scheduler - INFO - Starting appointment check at 2025-04-09 18:15:25
+2025-04-09 18:16:00,443 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250409_181525.log
+2025-04-09 18:16:00,443 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-09 18:16:00,443 - appointment_scheduler - INFO - No appointments available at 2025-04-09 18:16:00. Both services checked and fully booked.
+2025-04-09 18:16:00,458 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-09 18:16:00,460 - appointment_scheduler - INFO - Next check scheduled for 2025-04-09 19:24:00 (standard hour +8 minutes)
+2025-04-09 19:24:54,997 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-09 19:24:54
+2025-04-09 19:25:35,272 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-09 19:25:35,272 - appointment_scheduler - INFO - Starting appointment check at 2025-04-09 19:24:55
+2025-04-09 19:25:35,272 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250409_192455.log
+2025-04-09 19:25:35,272 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-09 19:25:35,273 - appointment_scheduler - INFO - No appointments available at 2025-04-09 19:25:35. Both services checked and fully booked.
+2025-04-09 19:25:35,288 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-09 19:25:35,291 - appointment_scheduler - INFO - Next check scheduled for 2025-04-09 20:28:35 (standard hour +3 minutes)
+2025-04-09 22:06:00,143 - appointment_scheduler - INFO - Appointment scheduler starting...
+2025-04-09 22:06:00,147 - appointment_scheduler - INFO - Running initial check...
+2025-04-09 22:06:00,147 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-09 22:06:00
+2025-04-09 22:06:42,251 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-09 22:06:42,251 - appointment_scheduler - INFO - Starting appointment check at 2025-04-09 22:06:00
+2025-04-09 22:06:42,252 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250409_220600.log
+2025-04-09 22:06:42,252 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-09 22:06:42,252 - appointment_scheduler - INFO - No appointments available at 2025-04-09 22:06:42. Both services checked and fully booked.
+2025-04-09 22:06:42,280 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-09 22:06:42,281 - appointment_scheduler - INFO - Next check scheduled for 2025-04-09 23:10:42 (standard hour +4 minutes)
+2025-04-09 22:06:42,281 - appointment_scheduler - INFO - Scheduler active. Will check for appointments approximately every hour (±10 minutes).
+2025-04-09 23:10:46,352 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-09 23:10:46
+2025-04-09 23:11:28,849 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-09 23:11:28,849 - appointment_scheduler - INFO - Starting appointment check at 2025-04-09 23:10:46
+2025-04-09 23:11:28,849 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250409_231046.log
+2025-04-09 23:11:28,849 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-09 23:11:28,849 - appointment_scheduler - INFO - No appointments available at 2025-04-09 23:11:28. Both services checked and fully booked.
+2025-04-09 23:11:28,865 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-09 23:11:28,867 - appointment_scheduler - INFO - Next check scheduled for 2025-04-10 00:03:28 (standard hour -8 minutes)
+2025-04-10 00:03:31,177 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-10 00:03:31
+2025-04-10 00:04:23,314 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-10 00:04:23,315 - appointment_scheduler - INFO - Starting appointment check at 2025-04-10 00:03:31
+2025-04-10 00:04:23,315 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250410_000331.log
+2025-04-10 00:04:23,315 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-10 00:04:23,315 - appointment_scheduler - INFO - No appointments available at 2025-04-10 00:04:23. Both services checked and fully booked.
+2025-04-10 00:04:23,331 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-10 00:04:23,331 - appointment_scheduler - INFO - Next check scheduled for 2025-04-10 01:01:23 (standard hour -3 minutes)
+2025-04-10 01:01:24,954 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-10 01:01:24
+2025-04-10 01:02:00,324 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-10 01:02:00,324 - appointment_scheduler - INFO - Starting appointment check at 2025-04-10 01:01:25
+2025-04-10 01:02:00,324 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250410_010125.log
+2025-04-10 01:02:00,325 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-10 01:02:00,325 - appointment_scheduler - INFO - No appointments available at 2025-04-10 01:02:00. Both services checked and fully booked.
+2025-04-10 01:02:00,340 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-10 01:02:00,340 - appointment_scheduler - INFO - Next check scheduled for 2025-04-10 01:59:00 (standard hour -3 minutes)
+2025-04-10 01:59:01,374 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-10 01:59:01
+2025-04-10 01:59:38,995 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-10 01:59:38,995 - appointment_scheduler - INFO - Starting appointment check at 2025-04-10 01:59:01
+2025-04-10 01:59:38,995 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250410_015901.log
+2025-04-10 01:59:38,995 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-10 01:59:38,995 - appointment_scheduler - INFO - No appointments available at 2025-04-10 01:59:38. Both services checked and fully booked.
+2025-04-10 01:59:39,018 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-10 01:59:39,018 - appointment_scheduler - INFO - Next check scheduled for 2025-04-10 02:58:39 (standard hour -1 minutes)
+2025-04-10 02:58:39,047 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-10 02:58:39
+2025-04-10 02:59:14,701 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-10 02:59:14,701 - appointment_scheduler - INFO - Starting appointment check at 2025-04-10 02:58:39
+2025-04-10 02:59:14,702 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250410_025839.log
+2025-04-10 02:59:14,702 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-10 02:59:14,702 - appointment_scheduler - INFO - No appointments available at 2025-04-10 02:59:14. Both services checked and fully booked.
+2025-04-10 02:59:14,716 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-10 02:59:14,716 - appointment_scheduler - INFO - Next check scheduled for 2025-04-10 04:02:14 (standard hour +3 minutes)
+2025-04-10 04:02:14,742 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-10 04:02:14
+2025-04-10 04:02:50,160 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-10 04:02:50,160 - appointment_scheduler - INFO - Starting appointment check at 2025-04-10 04:02:15
+2025-04-10 04:02:50,161 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250410_040215.log
+2025-04-10 04:02:50,161 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-10 04:02:50,161 - appointment_scheduler - INFO - No appointments available at 2025-04-10 04:02:50. Both services checked and fully booked.
+2025-04-10 04:02:50,185 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-10 04:02:50,186 - appointment_scheduler - INFO - Next check scheduled for 2025-04-10 05:08:50 (standard hour +6 minutes)
+2025-04-10 05:09:49,825 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-10 05:09:49
+2025-04-10 05:10:30,414 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-10 05:10:30,414 - appointment_scheduler - INFO - Starting appointment check at 2025-04-10 05:09:50
+2025-04-10 05:10:30,414 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250410_050950.log
+2025-04-10 05:10:30,415 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-10 05:10:30,415 - appointment_scheduler - INFO - No appointments available at 2025-04-10 05:10:30. Both services checked and fully booked.
+2025-04-10 05:10:30,437 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-10 05:10:30,437 - appointment_scheduler - INFO - Next check scheduled for 2025-04-10 06:06:30 (standard hour -4 minutes)
+2025-04-10 06:07:29,472 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-10 06:07:29
+2025-04-10 06:08:08,331 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-10 06:08:08,331 - appointment_scheduler - INFO - Starting appointment check at 2025-04-10 06:07:29
+2025-04-10 06:08:08,331 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250410_060729.log
+2025-04-10 06:08:08,331 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-10 06:08:08,331 - appointment_scheduler - INFO - No appointments available at 2025-04-10 06:08:08. Both services checked and fully booked.
+2025-04-10 06:08:08,348 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-10 06:08:08,349 - appointment_scheduler - INFO - Next check scheduled for 2025-04-10 07:10:08 (standard hour +2 minutes)
+2025-04-10 07:11:07,414 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-10 07:11:07
+2025-04-10 07:11:47,159 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-10 07:11:47,159 - appointment_scheduler - INFO - Starting appointment check at 2025-04-10 07:11:07
+2025-04-10 07:11:47,159 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250410_071107.log
+2025-04-10 07:11:47,159 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-10 07:11:47,159 - appointment_scheduler - INFO - No appointments available at 2025-04-10 07:11:47. Both services checked and fully booked.
+2025-04-10 07:11:47,175 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-10 07:11:47,175 - appointment_scheduler - INFO - Next check scheduled for 2025-04-10 08:15:47 (standard hour +4 minutes)
+2025-04-10 08:16:46,582 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-10 08:16:46
+2025-04-10 08:19:54,092 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-10 08:19:54,092 - appointment_scheduler - INFO - Starting appointment check at 2025-04-10 08:16:46
+2025-04-10 08:19:54,092 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250410_081646.log
+2025-04-10 08:19:54,092 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-10 08:19:54,093 - appointment_scheduler - INFO - Message sent successfully to Telegram at 2025-04-10 08:19:54
+2025-04-10 08:19:54,115 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-10 08:19:54,116 - appointment_scheduler - INFO - Next check scheduled for 2025-04-10 09:28:54 (standard hour +9 minutes)
+2025-04-10 09:29:53,136 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-10 09:29:53
+2025-04-10 09:33:04,374 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-10 09:33:04,374 - appointment_scheduler - INFO - Starting appointment check at 2025-04-10 09:29:53
+2025-04-10 09:33:04,374 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250410_092953.log
+2025-04-10 09:33:04,375 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-10 09:33:04,375 - appointment_scheduler - INFO - Message sent successfully to Telegram at 2025-04-10 09:33:04
+2025-04-10 09:33:04,398 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-10 09:33:04,398 - appointment_scheduler - INFO - Next check scheduled for 2025-04-10 10:41:04 (standard hour +8 minutes)
+2025-04-10 11:05:16,882 - appointment_scheduler - INFO - Appointment scheduler starting...
+2025-04-10 11:05:16,883 - appointment_scheduler - INFO - Running initial check...
+2025-04-10 11:05:16,884 - appointment_scheduler - INFO - Starting scheduled appointment check at 2025-04-10 11:05:16
+2025-04-10 11:08:18,347 - appointment_scheduler - INFO - Telegram configuration loaded successfully
+2025-04-10 11:08:18,347 - appointment_scheduler - INFO - Starting appointment check at 2025-04-10 11:05:16
+2025-04-10 11:08:18,347 - appointment_scheduler - INFO - Log will be saved to artifacts/appointment_check_20250410_110516.log
+2025-04-10 11:08:18,348 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-10 11:08:18,348 - appointment_scheduler - INFO - Message sent successfully to Telegram at 2025-04-10 11:08:18
+2025-04-10 11:08:18,370 - appointment_scheduler - INFO - Appointment check completed with exit code 0
+2025-04-10 11:08:18,370 - appointment_scheduler - INFO - Next check scheduled for 2025-04-10 12:00:18 (standard hour -8 minutes)
+2025-04-10 11:08:18,370 - appointment_scheduler - INFO - Scheduler active. Will check for appointments approximately every hour (±10 minutes).

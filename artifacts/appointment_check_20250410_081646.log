@@ -1,0 +1,163 @@
+Installing ChromeDriver...
+Using ChromeDriver from: /root/.wdm/drivers/chromedriver/linux64/133.0.6943.141/chromedriver-linux64/chromedriver
+Selenium-stealth applied
+Attempt 1/3
+Opening the website directly in English...
+Navigating to https://prenotami.esteri.it/?lang=en-GB with 30 second timeout...
+Accessing login page...
+Looking for email field...
+Found email field, filling form...
+Looking for password field...
+Form filled, saved screenshot
+Attempting to click login button...
+Clicked button using JavaScript
+Login attempt completed, saved screenshot
+Cookies saved to artifacts/prenotami_cookies_attempt_0.json
+Navigating to the main Services page...
+Navigating to https://prenotami.esteri.it/Services with 30 second timeout...
+Services page accessed, saved screenshot
+Navigating to the first booking service page (1151)...
+Navigating to https://prenotami.esteri.it/Services/Booking/1151 with 30 second timeout...
+RESULT: No appointments available for service 1151 - all slots are booked.
+Trying alternative booking service page (1258)...
+Navigating to https://prenotami.esteri.it/Services/Booking/1258 with 30 second timeout...
+Timeout or error accessing https://prenotami.esteri.it/Services/Booking/1258: Message: timeout: Timed out receiving message from renderer: -0.006
+  (Session info: chrome=133.0.6943.53)
+Stacktrace:
+#0 0x559046f9614a <unknown>
+#1 0x559046a33b80 <unknown>
+#2 0x559046a1ad3d <unknown>
+#3 0x559046a1aa1f <unknown>
+#4 0x559046a18762 <unknown>
+#5 0x559046a1919f <unknown>
+#6 0x559046a28b5b <unknown>
+#7 0x559046a41b5f <unknown>
+#8 0x559046a4827b <unknown>
+#9 0x559046a198b0 <unknown>
+#10 0x559046a419cd <unknown>
+#11 0x559046ad1016 <unknown>
+#12 0x559046aaaca3 <unknown>
+#13 0x559046a76f08 <unknown>
+#14 0x559046a78071 <unknown>
+#15 0x559046f5fb5b <unknown>
+#16 0x559046f63ae2 <unknown>
+#17 0x559046f4b967 <unknown>
+#18 0x559046f646d4 <unknown>
+#19 0x559046f2fc7f <unknown>
+#20 0x559046f84cd8 <unknown>
+#21 0x559046f84ea9 <unknown>
+#22 0x559046f94fc6 <unknown>
+#23 0x7f65a93a0ac3 <unknown>
+
+Booking page 1258 timed out, logging out and retrying...
+Attempting to logout...
+Navigating to https://prenotami.esteri.it/Account/LogOff with 15 second timeout...
+Logout successful
+Attempt 2/3
+Refreshing session after timeout...
+Installing ChromeDriver...
+Using ChromeDriver from: /root/.wdm/drivers/chromedriver/linux64/133.0.6943.141/chromedriver-linux64/chromedriver
+Selenium-stealth applied
+Browser session refreshed successfully
+Opening the website directly in English...
+Navigating to https://prenotami.esteri.it/?lang=en-GB with 30 second timeout...
+Accessing login page...
+Looking for email field...
+Found email field, filling form...
+Looking for password field...
+Form filled, saved screenshot
+Attempting to click login button...
+Clicked button using JavaScript
+Login attempt completed, saved screenshot
+Cookies saved to artifacts/prenotami_cookies_attempt_1.json
+Navigating to the main Services page...
+Navigating to https://prenotami.esteri.it/Services with 30 second timeout...
+Services page accessed, saved screenshot
+Navigating to the first booking service page (1151)...
+Navigating to https://prenotami.esteri.it/Services/Booking/1151 with 30 second timeout...
+Timeout or error accessing https://prenotami.esteri.it/Services/Booking/1151: Message: timeout: Timed out receiving message from renderer: -0.009
+  (Session info: chrome=133.0.6943.53)
+Stacktrace:
+#0 0x564286acb14a <unknown>
+#1 0x564286568b80 <unknown>
+#2 0x56428654fd3d <unknown>
+#3 0x56428654fa1f <unknown>
+#4 0x56428654d762 <unknown>
+#5 0x56428654e19f <unknown>
+#6 0x56428655db5b <unknown>
+#7 0x564286576b5f <unknown>
+#8 0x56428657d27b <unknown>
+#9 0x56428654e8b0 <unknown>
+#10 0x5642865769cd <unknown>
+#11 0x564286606016 <unknown>
+#12 0x5642865dfca3 <unknown>
+#13 0x5642865abf08 <unknown>
+#14 0x5642865ad071 <unknown>
+#15 0x564286a94b5b <unknown>
+#16 0x564286a98ae2 <unknown>
+#17 0x564286a80967 <unknown>
+#18 0x564286a996d4 <unknown>
+#19 0x564286a64c7f <unknown>
+#20 0x564286ab9cd8 <unknown>
+#21 0x564286ab9ea9 <unknown>
+#22 0x564286ac9fc6 <unknown>
+#23 0x7f7d65964ac3 <unknown>
+
+Booking page 1151 timed out, logging out and retrying...
+Attempting to logout...
+Navigating to https://prenotami.esteri.it/Account/LogOff with 15 second timeout...
+Logout successful
+Attempt 3/3
+Refreshing session after timeout...
+Installing ChromeDriver...
+Using ChromeDriver from: /root/.wdm/drivers/chromedriver/linux64/133.0.6943.141/chromedriver-linux64/chromedriver
+Selenium-stealth applied
+Browser session refreshed successfully
+Opening the website directly in English...
+Navigating to https://prenotami.esteri.it/?lang=en-GB with 30 second timeout...
+Accessing login page...
+Looking for email field...
+Found email field, filling form...
+Looking for password field...
+Form filled, saved screenshot
+Attempting to click login button...
+Clicked button using JavaScript
+Login attempt completed, saved screenshot
+Cookies saved to artifacts/prenotami_cookies_attempt_2.json
+Navigating to the main Services page...
+Navigating to https://prenotami.esteri.it/Services with 30 second timeout...
+Services page accessed, saved screenshot
+Navigating to the first booking service page (1151)...
+Navigating to https://prenotami.esteri.it/Services/Booking/1151 with 30 second timeout...
+Timeout or error accessing https://prenotami.esteri.it/Services/Booking/1151: Message: timeout: Timed out receiving message from renderer: -0.009
+  (Session info: chrome=133.0.6943.53)
+Stacktrace:
+#0 0x55de9ba1914a <unknown>
+#1 0x55de9b4b6b80 <unknown>
+#2 0x55de9b49dd3d <unknown>
+#3 0x55de9b49da1f <unknown>
+#4 0x55de9b49b762 <unknown>
+#5 0x55de9b49c19f <unknown>
+#6 0x55de9b4abb5b <unknown>
+#7 0x55de9b4c4b5f <unknown>
+#8 0x55de9b4cb27b <unknown>
+#9 0x55de9b49c8b0 <unknown>
+#10 0x55de9b4c49cd <unknown>
+#11 0x55de9b554016 <unknown>
+#12 0x55de9b52dca3 <unknown>
+#13 0x55de9b4f9f08 <unknown>
+#14 0x55de9b4fb071 <unknown>
+#15 0x55de9b9e2b5b <unknown>
+#16 0x55de9b9e6ae2 <unknown>
+#17 0x55de9b9ce967 <unknown>
+#18 0x55de9b9e76d4 <unknown>
+#19 0x55de9b9b2c7f <unknown>
+#20 0x55de9ba07cd8 <unknown>
+#21 0x55de9ba07ea9 <unknown>
+#22 0x55de9ba17fc6 <unknown>
+#23 0x7fe1d5423ac3 <unknown>
+
+Booking page 1151 timed out, logging out and retrying...
+Attempting to logout...
+Navigating to https://prenotami.esteri.it/Account/LogOff with 15 second timeout...
+Logout successful
