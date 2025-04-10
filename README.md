@@ -1,10 +1,10 @@
 # Prenotami Appointment Checker
 
-An automated tool to check for available appointments on the Italian consular services website (prenotami.esteri.it).
+An automated tool to check for available appointments on the Italian consular services website (prenotami.esteri.it) with scheduled monitoring and notifications.
 
 ## Description
 
-This script automates the process of logging into the Prenotami website and checking for available appointment slots. It uses Selenium with anti-bot detection measures to navigate through the website, and falls back to direct HTTP requests if Selenium is detected.
+This system automates the process of logging into the Prenotami website and checking for available appointment slots. It uses Selenium with anti-bot detection measures to navigate through the website and includes a scheduler to periodically check for appointments. When an appointment becomes available, the system sends notifications via Telegram.
 
 ## Features
 
@@ -12,38 +12,53 @@ This script automates the process of logging into the Prenotami website and chec
 - Anti-bot detection measures using selenium-stealth
 - Human-like behavior simulation with random delays
 - Multiple login attempt strategies
-- Fallback to direct HTTP requests if automation is detected
 - Cookie persistence for future sessions
 - Screenshot capture at critical steps
 - Detailed logging of the process
+- Scheduled appointment checking (approximately hourly with randomization)
+- Telegram notifications when appointments become available
+- Daily status summaries
+- Artifact archiving for debugging and verification
+
+## Components
+
+The system consists of several Python scripts:
+
+1. **login.py** - Handles the core website interaction and appointment checking logic
+2. **appointment_monitor.py** - Runs the login script and sends notifications when appointments are found
+3. **scheduler.py** - Provides automated scheduling of appointment checks
 
 ## Requirements
 
 - Python 3.6+
 - Chrome browser
 - Internet connection
+- Telegram bot (for notifications)
 
 ## Dependencies
 
-The script requires the following Python packages:
+The scripts require the following Python packages:
 
 ```
 selenium
 webdriver-manager
 selenium-stealth
 requests
+schedule
 beautifulsoup4
 ```
 
 Install dependencies with pip:
 
 ```bash
-pip install selenium webdriver-manager selenium-stealth requests beautifulsoup4
+pip install selenium webdriver-manager selenium-stealth requests schedule beautifulsoup4
 ```
 
 ## Configuration
 
-Create a `credentials.json` file in the same directory as the script with the following format:
+### 1. Credentials Setup
+
+Create a `credentials.json` file in the same directory with your Prenotami login details:
 
 ```json
 {
@@ -52,49 +67,91 @@ Create a `credentials.json` file in the same directory as the script with the fo
 }
 ```
 
-## Usage
+### 2. Telegram Notifications Setup
 
-1. Ensure you have Chrome installed on your system
-2. Create the credentials.json file with your login details
-3. Run the script:
+Create a `telegram_config.json` file for notification capabilities:
 
-```bash
-python login.py
+```json
+{
+  "bot_token": "YOUR_TELEGRAM_BOT_TOKEN",
+  "chat_id": "YOUR_TELEGRAM_CHAT_ID"
+}
 ```
 
-## Output
+## Usage
 
-The script generates several files during execution:
+### Manual Check
 
-- `form_filled.png`: Screenshot after filling the login form
-- `after_login.png`: Screenshot after attempting to log in
-- `error.png`: Screenshot if an error occurs
-- `prenotami_cookies.json`: Saved cookies after successful login with Selenium
-- `prenotami_cookies_requests.json`: Saved cookies after successful login with requests
-- `booking_page.html`: HTML content of the booking page
-- `booking_page.png`: Screenshot of the booking page
-- `unavailable_page.html`: HTML content if "Unavailable" is detected
-- `login_response.html`: HTML content of the login response when using requests
+Run a single check for available appointments:
+
+```bash
+python appointment_monitor.py
+```
+
+### Scheduled Monitoring
+
+Start the automated scheduler to check for appointments approximately hourly:
+
+```bash
+python scheduler.py
+```
+
+The scheduler will:
+- Run checks approximately every hour (with ±10 minutes of randomization)
+- Log all activity to the artifacts directory
+- Send notifications through Telegram when appointments become available
+- Provide daily summaries when no appointments are found
+
+## Output Files
+
+The scripts generate several files in the `artifacts` directory:
+
+- `scheduler.log`: Log of all scheduler activities
+- `appointment_check_YYYYMMDD_HHMMSS.log`: Logs from individual checks
+- `form_filled_attempt_N.png`: Screenshot after filling the login form
+- `after_login_attempt_N.png`: Screenshot after attempting to log in
+- `error_attempt_N.png`: Screenshot if an error occurs
+- `prenotami_cookies_attempt_N.json`: Saved cookies after successful login
+- `services_page_attempt_N.png`: Screenshot of the services page
+- `booking_page_1151.png/html`: Screenshot/HTML of the booking page for service 1151
+- `booking_page_1258.png/html`: Screenshot/HTML of the booking page for service 1258
+- `daily_status.json`: Tracking of check results and history
 
 ## Functionality
 
-The script works by:
+The system works by:
 
-1. Reading credentials from a JSON file
-2. Configuring Chrome with anti-bot detection measures
-3. Navigating to the Prenotami website
-4. Filling in the login form with human-like typing behavior
-5. Attempting to click the login button using multiple methods
-6. Checking if login was successful
-7. If detected as a bot, falling back to direct HTTP requests
-8. Checking the specific booking service page for appointment availability
-9. Saving the results and relevant screenshots/HTML
+1. **Scheduler (scheduler.py)**:
+   - Runs appointment checks approximately every hour with randomized timing
+   - Logs all activity for troubleshooting
+
+2. **Monitor (appointment_monitor.py)**:
+   - Executes the login script to check appointment availability
+   - Processes the results and determines if appointments are available
+   - Sends Telegram notifications when appointments are found
+   - Provides daily summaries
+   - Maintains tracking of check history
+
+3. **Login Script (login.py)**:
+   - Reads credentials from a JSON file
+   - Configures Chrome with anti-bot detection measures
+   - Navigates to the Prenotami website
+   - Simulates human-like typing and interaction behavior
+   - Checks multiple booking service pages for appointment availability
+   - Saves screenshots and HTML content for verification
+
+## Services Monitored
+
+The system checks for appointments for two specific services:
+- Service ID 1151
+- Service ID 1258
 
 ## Troubleshooting
 
+- If you see "ERROR: Telegram configuration missing or invalid," check your telegram_config.json file.
 - If you see "Error: Credentials file 'credentials.json' not found", create the credentials file as described in the Configuration section.
-- If the script fails with "Website returned 'Unavailable'", it may mean the website has detected automation. The script will try alternative methods.
-- Check the generated screenshots and HTML files for further debugging.
+- Check the generated logs, screenshots, and HTML files in the artifacts directory for debugging.
+- If the scheduler stops unexpectedly, check the scheduler.log file for errors.
 
 ## Legal Notice
 
