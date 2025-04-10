@@ -148,21 +148,7 @@ try:
         # Open the website directly to the English version
         print(f"Attempt {current_retry + 1}/{max_retries}")
         
-        # Only create a new driver if it's a new retry attempt, not after a logout
-        if current_retry > 0:
-            print("Refreshing session for new attempt...")
-            try:
-                # Close old driver
-                driver.quit()
-                # Create a fresh driver instance
-                driver, service, new_temp_dir = create_new_driver()
-                # Track the new temp directory to clean up later
-                temp_dir = new_temp_dir
-                print("Browser session refreshed successfully")
-            except Exception as e:
-                print(f"Error refreshing browser session: {e}")
-                break
-        
+       
         print("Opening the website directly in English...")
         site_loaded = navigate_with_timeout(driver, "https://prenotami.esteri.it", 30)
         
